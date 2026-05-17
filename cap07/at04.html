@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PWEB1 — Cap. 07 — AT04 — Positioning Page</title>
+  <link rel="stylesheet" href="at04.css" />
+</head>
+<body id="topo">
+
+  <nav class="nav-fixa">
+    <div class="nav-conteudo">
+      <span class="nav-logo">PWEB1 CSS Positioning</span>
+      <ul class="nav-links">
+        <li><a href="../index.html">← Back to Main Page</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="conteudo-principal">
+    
+    <header class="cabecalho-pagina">
+      <h1>Practical Demonstration of CSS Positioning</h1>
+      <p>Scroll down the page to observe how fixed, sticky, absolute, and relative elements behave in real-time.</p>
+    </header>
+
+    <section class="secao-texto">
+      <p>CSS positioning allows developers to take elements out of the normal document flow to create advanced layouts, sticky elements, overlays, and floating components. Mastering these values—static, relative, absolute, fixed, and sticky—is essential for building professional interfaces.</p>
+      
+      <p>
+        While reading this technical guide, you can hover your mouse over 
+        <span class="tooltip-container">
+          this highlighted text
+          <span class="tooltip-texto">This is the required context tooltip!</span>
+        </span> 
+        to view a real example of an absolutely positioned tooltip that appears perfectly above its parent element without disrupting the paragraph text.
+      </p>
+
+      <p>Without proper positioning, UI components like dropdown menus, global navigation headers, modal dialog overlays, and floating actions would be nearly impossible to build using modern web standards.</p>
+    </section>
+
+    <section class="secao-cards">
+      <article class="cartao-destaque">
+        <span class="selo">NEW</span>
+        <h3>Absolute Component</h3>
+        <p>This entire card component uses relative positioning. This structural setting acts as an anchor, allowing the red "NEW" badge on the top right to position itself absolutely, overlapping the borders flawlessly.</p>
+      </article>
+    </section>
+
+    <section class="secao-longa">
+      <h2 class="titulo-sticky">Sticky Section Title (This bar will stick)</h2>
+      
+      <div class="texto-scroll">
+        <p><strong>Watch the gray heading bar above:</strong> as you scroll down this long text block, the title will dynamically lock itself right underneath the top dark blue navigation bar. It stays pinned on screen while you read through this extended content.</p>
+        
+        <p>Web interfaces often use sticky containers for layout elements like sidebars, long reading headers, table of contents, and search filtering boxes. It significantly improves user experience by keeping essential controls always within arms reach.</p>
+        
+        <p>The sticky element behaves like a normal relative element until it reaches a specified scroll threshold on the viewport. Once that exact coordinate is hit, it seamlessly toggles to act like a fixed element, staying glued to the screen.</p>
+        
+        <p>However, keep in mind that a sticky element is bound to its immediate parent container. Once the user scrolls past the boundaries of the containing parent section, the sticky element will release its lock and roll away naturally with the rest of the page layout.</p>
+        
+        <p>This subtle behavior prevents sticky components from floating endlessly over independent sections of your layout where they do not belong, ensuring a neat separation of content contexts.</p>
+        
+        <p>By implementing these modern styling techniques, you can easily avoid complex JavaScript scroll listeners, improving rendering performance and device battery life across responsive viewports.</p>
+      </div>
+    </section>
+
+    <section class="secao-texto">
+      <h2>End of Document</h2>
+      <p>Responsive design relies on smart, native CSS properties. Using relative values and dynamic limits ensures the layout scales cleanly across screens, from small mobile devices to massive 4K desktop monitors.</p>
+      <p>Now that you have seen fixed navbars, sticky section headers, absolute badge overlays, interactive hover tooltips, and floating action buttons in action, you are ready to implement robust structural systems.</p>
+    </section>
+
+  </main>
+
+  <a href="#topo" class="btn-topo" title="Scroll to Top">▲</a>
+
+</body>
+</html>

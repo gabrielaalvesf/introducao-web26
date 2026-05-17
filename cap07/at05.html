@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PWEB1 — Cap. 07 — AT05 — Mini Design System</title>
+  <link rel="stylesheet" href="at05-style.css" />
+</head>
+<body>
+
+  <header class="ds-header">
+    <div class="ds-container">
+      <h1>NovaCore Design System</h1>
+      <p><a href="../index.html" class="ds-link-voltar">← Back to Main Page</a></p>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2 class="hero__titulo">Next-Gen Interfaces Built with Precision</h2>
+      <p class="hero__subtitulo">A production-ready architecture using atomic components, clean semantic tokens, and rigid BEM code methodologies.</p>
+      <a href="#components-showcase" class="hero__cta btn btn--primario">Explore Components</a>
+    </section>
+
+    <div class="ds-container" id="components-showcase">
+      
+      <section class="ds-section">
+        <h2 class="ds-section-title">Component 02 — Buttons with Modifiers</h2>
+        <div class="ds-showcase">
+          <button class="btn btn--primario">Primary Action</button>
+          <button class="btn btn--secundario">Secondary Action</button>
+          <button class="btn btn--perigo">Destructive Action</button>
+          <button class="btn btn--primario" disabled>Disabled State</button>
+        </div>
+      </section>
+
+      <section class="ds-section">
+        <h2 class="ds-section-title">Component 03 — Cards with Absolute Badges</h2>
+        <div class="ds-grid-cards">
+          
+          <article class="card">
+            <span class="card__badge">FEATURED</span>
+            <div class="card__imagem"></div>
+            <div class="card__corpo">
+              <h3 class="card__titulo">Modular Architecture</h3>
+              <p class="card__texto">Scalable components designed to maintain visual rhythm across complex application viewports.</p>
+              <a class="card__link" href="#">Learn more →</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <span class="card__badgecard card__badge--new">NEW</span>
+            <div class="card__imagem" style="filter: hue-rotate(90deg);"></div>
+            <div class="card__corpo">
+              <h3 class="card__titulo">Fluid Typography</h3>
+              <p class="card__texto">Using CSS clamp formulas to naturally scale type headers based on active device sizes.</p>
+              <a class="card__link" href="#">Learn more →</a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <section class="ds-section">
+        <h2 class="ds-section-title">Component 04 — Design Token Table</h2>
+        <div class="ds-table-responsive">
+          <table class="ds-table">
+            <thead>
+              <tr>
+                <th>Visual Token</th>
+                <th>Variable Name</th>
+                <th>Functional Context</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div class="ds-color-swatch" style="background-color: #2563eb;"></div></td>
+                <td><code>--cor-primaria</code></td>
+                <td>Main brand identity interactions and hyperlinks.</td>
+              </tr>
+              <tr>
+                <td><div class="ds-color-swatch" style="background-color: #475569;"></div></td>
+                <td><code>--cor-secundaria</code></td>
+                <td>Secondary interface accents and outline boundaries.</td>
+              </tr>
+              <tr>
+                <td><div class="ds-color-swatch" style="background-color: #f59e0b;"></div></td>
+                <td><code>--cor-destaque</code></td>
+                <td>Badges, highlight overlays, and notice callouts.</td>
+              </tr>
+              <tr>
+                <td><div class="ds-color-swatch" style="background-color: #16a34a;"></div></td>
+                <td><code>--cor-sucesso</code></td>
+                <td>Valid application state inputs and affirmative text.</td>
+              </tr>
+              <tr>
+                <td><div class="ds-color-swatch" style="background-color: #dc2626;"></div></td>
+                <td><code>--cor-erro</code></td>
+                <td>System failure tracking, invalid inputs, and destructive buttons.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="ds-section">
+        <h2 class="ds-section-title">Component 05 — Atomic BEM Form</h2>
+        <form class="form" novalidate onsubmit="return false;">
+          
+          <div class="form__grupo">
+            <label class="form__label" for="ds-name">User Name *</label>
+            <input class="form__input" type="text" id="ds-name" required placeholder="John Doe" />
+            <span class="form__mensagem-erro">This field is mandatory</span>
+          </div>
+
+          <div class="form__grupo">
+            <label class="form__label" for="ds-email">Corporate Email *</label>
+            <input class="form__input" type="email" id="ds-email" required placeholder="user@company.com" />
+            <span class="form__mensagem-erro">Please insert a valid active email account</span>
+          </div>
+
+          <div class="form__grupo">
+            <label class="form__label" for="ds-note">Additional Comments (Optional)</label>
+            <textarea class="form__input" id="ds-note" rows="4" placeholder="Type your layout notes here..."></textarea>
+          </div>
+
+          <button class="form__botao btn btn--primario" type="submit">Submit Platform Data</button>
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+</body>
+</html>
