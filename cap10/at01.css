@@ -1,0 +1,274 @@
+/* ==========================================================================
+   Capítulo 10 — Design Responsivo (YouTube Premium Pastel - Mobile-First)
+   ========================================================================== */
+
+/* ─── Variáveis Globais (Tema Claro - Padrão) ─── */
+:root {
+  --bg-color: #fafaf9;
+  --text-color: #1e293b;
+  --text-muted: #64748b;
+  --card-bg: #ffffff;
+  
+  /* Cores Pastel */
+  --pastel-red: #fca5a5;      /* Vermelho pastel suave do YouTube */
+  --pastel-yellow: #fef08a;   /* Amarelo Baunilha */
+  --pastel-green: #bbf7d0;    /* Verde Menta */
+  --pastel-blue: #bfdbfe;     /* Azul Bebê */
+  --pastel-pink: #fbcfe8;     /* Rosa Pastel */
+
+  --font-family: 'Segoe UI', system-ui, sans-serif;
+  --transition: all 0.3s ease;
+}
+
+/* ─── Suporte Automático a Dark Mode (Requisito Obrigatório) ─── */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #121212;
+    --text-color: #f8fafc;
+    --text-muted: #94a3b8;
+    --card-bg: #1e1e1e;
+    
+    /* Tons adaptados para o Modo Escuro */
+    --pastel-red: #ef4444;
+    --pastel-yellow: #facc15;
+    --pastel-green: #4ade80;
+    --pastel-blue: #60a5fa;
+    --pastel-pink: #f472b6;
+  }
+}
+
+/* ─── Resets Básicos & Imagens Responsivas ─── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  transition: var(--transition);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+/* ─── ESTILOS BASE: MOBILE-FIRST (Telas de Celular) ─── */
+
+/* Header & Nav */
+.main-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 15px;
+  background-color: var(--card-bg);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-color);
+}
+
+.logo span {
+  background-color: var(--pastel-red);
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-left: 4px;
+  color: #1e293b;
+}
+
+.nav-menu ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  gap: 15px;
+}
+
+.nav-menu a {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.nav-menu a:hover {
+  color: var(--pastel-red);
+}
+
+.nav-btn {
+  background-color: var(--text-color);
+  color: var(--bg-color) !important;
+  padding: 6px 16px;
+  border-radius: 20px;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, var(--pastel-red), var(--pastel-pink));
+  padding: 60px 20px;
+  text-align: center;
+  color: #1e293b;
+}
+
+/* Tipografia Fluida com clamp() (Requisito Obrigatório) */
+.hero-content h1 {
+  font-size: clamp(1.8rem, 5.5vw, 3.5rem);
+  line-height: 1.1;
+  margin-bottom: 20px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: #1e293b;
+  color: #ffffff;
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.btn-primary:hover {
+  transform: scale(1.03);
+}
+
+.hero-note {
+  font-size: 0.85rem;
+  margin-top: 15px;
+  opacity: 0.8;
+}
+
+/* Seções de Conteúdo & Grid */
+.content-container {
+  padding: 40px 20px;
+}
+
+.cards-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Layout usando CSS Grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 coluna no celular */
+  gap: 20px;
+}
+
+.card {
+  background-color: var(--card-bg);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+  transition: var(--transition);
+  color: #1e293b;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-pink { border-top: 6px solid var(--pastel-pink); }
+.card-yellow { border-top: 6px solid var(--pastel-yellow); }
+.card-green { border-top: 6px solid var(--pastel-green); }
+.card-blue { border-top: 6px solid var(--pastel-blue); }
+
+.card h3 { margin-bottom: 10px; font-size: 1.25rem; }
+.card p { color: var(--text-muted); font-size: 0.95rem; }
+
+/* Footer */
+.main-footer {
+  background-color: var(--card-bg);
+  padding: 40px 20px;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.footer-column h4 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-bottom: 15px;
+}
+
+.footer-column ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ─── BREAKPOINTS ADAPTATIVOS (Media Queries com min-width) ─── */
+
+/* 📱 Breakpoint 1: Tablets (min-width: 576px) */
+@media (min-width: 576px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr); /* Divide em 2 colunas */
+  }
+  
+  .footer-links {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+/* 💻 Breakpoint 2: Laptops (min-width: 768px) */
+@media (min-width: 768px) {
+  .main-header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 50px;
+  }
+  
+  .hero-section {
+    padding: 90px 40px;
+  }
+}
+
+/* 🖥️ Breakpoint 3: Monitores Grandes (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .cards-grid {
+    grid-template-columns: repeat(4, 1fr); /* Divide em 4 colunas em telas cheias */
+  }
+  
+  .content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 0;
+  }
+}
