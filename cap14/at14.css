@@ -1,0 +1,203 @@
+:root {
+  --bg-principal: #f4f6f9;
+  --bg-card: #ffffff;
+  --texto-principal: #1e293b;
+  --texto-secundario: #64748b;
+  
+  --azul-marinho: #0f172a;
+  --azul-interativo: #1e40af;
+  --amarelo-ouro: #eab308;
+  --borda: #cbd5e1;
+  
+  --fonte: 'Segoe UI', system-ui, sans-serif;
+  --transicao: all 0.25s ease;
+}
+
+body.tema-escuro {
+  --bg-principal: #0f172a;
+  --bg-card: #1e293b;
+  --texto-principal: #f8fafc;
+  --texto-secundario: #94a3b8;
+  --borda: #334155;
+}
+
+body.tema-azul {
+  --bg-principal: #e0f2fe;
+  --bg-card: #ffffff;
+  --texto-principal: #0369a1;
+  --texto-secundario: #0284c7;
+  --borda: #bae6fd;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--fonte);
+  background-color: var(--bg-principal);
+  color: var(--texto-principal);
+  transition: var(--transicao);
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  padding: 30px 20px;
+  background-color: var(--azul-marinho);
+  color: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+section {
+  background-color: var(--bg-card);
+  padding: 25px;
+  border-radius: 8px;
+  border: 1px solid var(--borda);
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+  transition: var(--transicao);
+}
+
+h2 {
+  font-size: 1.3rem;
+  border-left: 5px solid var(--azul-interativo);
+  padding-left: 10px;
+  margin-bottom: 20px;
+  color: var(--azul-marinho);
+}
+
+body.tema-escuro h2 {
+  color: var(--pastel-blue, #38bdf8);
+  border-left-color: #38bdf8;
+}
+
+hr {
+  display: none;
+}
+
+#perfil {
+  text-align: center;
+}
+
+#fotoPerfil {
+  border-radius: 50%;
+  border: 4px solid var(--azul-marinho);
+  object-fit: cover;
+  height: 200px;
+  margin-bottom: 15px;
+  background-color: #e2e8f0;
+}
+
+#nomePerfil {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+#matriculaPerfil, #cursoPerfil {
+  color: var(--texto-secundario);
+  font-weight: 500;
+}
+
+#biografiaPerfil {
+  margin-top: 15px;
+  font-size: 1rem;
+  color: var(--texto-principal);
+  padding: 10px;
+  background-color: rgba(0,0,0,0.02);
+  border-radius: 6px;
+}
+
+.perfil-destacado {
+  border: 3px solid var(--amarelo-ouro) !important;
+  box-shadow: 0 10px 25px rgba(234, 179, 8, 0.25) !important;
+  transform: scale(1.02);
+}
+
+label {
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+select, input[type="email"], input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  background-color: var(--bg-principal);
+  color: var(--texto-principal);
+  font-size: 1rem;
+}
+
+input[type="range"] {
+  width: 70%;
+  vertical-align: middle;
+}
+
+#valorFonte {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+/* ─── Botões Customizados ─── */
+button {
+  background-color: var(--azul-interativo);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transicao);
+  margin: 4px;
+}
+
+button:hover {
+  background-color: var(--azul-marinho);
+  transform: translateY(-2px);
+}
+
+#acoes button {
+  background-color: #334155;
+}
+
+#acoes button:hover {
+  background-color: var(--azul-interativo);
+}
+
+#btnRestaurar {
+  background-color: #94a3b8 !important;
+}
+
+#btnRestaurar:hover {
+  background-color: #ef4444 !important; /* Vermelho ao resetar */
+}
+
+/* Estatísticas */
+#estatisticas strong {
+  color: var(--azul-interativo);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--texto-secundario);
+  font-size: 0.9rem;
+}
