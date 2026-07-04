@@ -1,0 +1,235 @@
+:root {
+  --azul-marinho: #0f172a;
+  --azul-interativo: #1e40af;
+  --amarelo-ouro: #eab308;
+  --sucesso: #16a34a;
+  --erro: #dc2626;
+  
+  --bg-paged: #f8fafc;
+  --bg-card: #ffffff;
+  --texto-p: #334155;
+  --borda: #cbd5e1;
+  
+  --font-family: 'Segoe UI', system-ui, sans-serif;
+  --transition: all 0.25s ease;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-paged);
+  color: var(--texto-p);
+  line-height: 1.6;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  background-color: var(--azul-marinho);
+  color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
+header h1 { font-size: 1.8rem; margin-bottom: 5px; }
+
+main { max-width: 700px; margin: 0 auto; }
+
+form { display: flex; flex-direction: column; gap: 20px; }
+
+fieldset {
+  background-color: var(--bg-card);
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+
+legend {
+  font-weight: 700;
+  color: var(--azul-marinho);
+  background-color: var(--bg-card);
+  padding: 4px 12px;
+  border: 1px solid var(--borda);
+  border-radius: 20px;
+  font-size: 0.95rem;
+}
+
+.form-group {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  color: var(--azul-marinho);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="password"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #ffffff;
+  transition: var(--transition);
+}
+
+/* Melhoria: Destacar campos válidos e inválidos */
+input.valido, select.valido, textarea.valido {
+  border-color: var(--sucesso) !important;
+  background-color: #f0fdf4;
+}
+
+input.invalido, select.invalido, textarea.invalido {
+  border-color: var(--erro) !important;
+  background-color: #fef2f2;
+}
+
+/* Mensagens de erro em tempo real */
+.error-message {
+  color: var(--erro);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 5px;
+  min-height: 18px;
+}
+
+/* Elementos Avançados de Interface */
+.radio-group, .checkbox-grid {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  padding: 5px 0;
+}
+
+.checkbox-grid label, .radio-group label {
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.password-wrapper {
+  display: flex;
+  position: relative;
+}
+
+.btn-toggle-pass {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  background-color: var(--borda);
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+/* Indicador de força de senha */
+#forcaSenhaContainer {
+  width: 100%;
+  height: 6px;
+  background-color: #e2e8f0;
+  border-radius: 3px;
+  margin-top: 6px;
+  overflow: hidden;
+}
+
+#forcaSenhaBarra {
+  height: 100%;
+  width: 0%;
+  transition: var(--transition);
+}
+
+.char-counter {
+  text-align: right;
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+/* Preview da imagem */
+#previewContainer {
+  margin-top: 10px;
+}
+
+#imagePreview {
+  max-width: 120px;
+  max-height: 120px;
+  border-radius: 8px;
+  border: 2px dashed var(--borda);
+}
+
+/* Botões */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+button[type="submit"], button[type="reset"] {
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+}
+
+button[type="submit"] {
+  background-color: var(--azul-interactive, #1e40af);
+  color: white;
+  flex-grow: 2;
+}
+
+button[type="submit"]:hover { background-color: var(--azul-marinho); }
+
+button[type="reset"] {
+  background-color: #94a3b8;
+  color: white;
+  flex-grow: 1;
+}
+
+button[type="reset"]:hover { background-color: #64748b; }
+
+/* ─── MODAL & TOAST (BÔNUS) ─── */
+.modal-overlay {
+  position: fixed;
+  top:0; left:0; width:100%; height:100%;
+  background: rgba(15, 23, 42, 0.6);
+  display: none; align-items: center; justify-content: center;
+  z-index: 1000;
+}
+
+.modal-box {
+  background: white; padding: 25px; border-radius: 8px;
+  max-width: 400px; text-align: center;
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+}
+
+.modal-buttons { display: flex; gap: 10px; margin-top: 20px; }
+
+.btn-modal-go { background: var(--sucesso); color: white; border:none; padding:10px; flex:1; border-radius:4px; font-weight:700; cursor:pointer;}
+.btn-modal-back { background: #cbd5e1; color: var(--azul-marinho); border:none; padding:10px; flex:1; border-radius:4px; font-weight:700; cursor:pointer;}
+
+.sucesso-toast {
+  position: fixed; bottom: 20px; right: 20px;
+  background-color: var(--sucesso); color: white;
+  padding: 15px 30px; border-radius: 6px; font-weight: 700;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+  display: none; z-index: 2000;
+}
+
+footer { text-align: center; padding: 30px; color: #64748b; font-size: 0.9rem; }

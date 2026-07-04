@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscrição Técnica — Painel de Cadastro</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Inscrição para Novos Alunos</h1>
+    <p>Preencha o formulário abaixo para concorrer a uma vaga em nossa instituição técnica.</p>
+  </header>
+
+  <main>
+    <form id="formCadastro" novalidate>
+      
+      <fieldset>
+        <legend>Dados Pessoais</legend>
+        
+        <div class="form-group">
+          <label for="nome">Nome Completo: *</label>
+          <input type="text" id="nome" name="nome" placeholder="Ex: Maria Oliveira" required minlength="3">
+          <span class="error-message" id="erro-nome"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-mail Acadêmico: *</label>
+          <input type="email" id="email" name="email" placeholder="exemplo@escola.com" required>
+          <span class="error-message" id="erro-email"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="telefone">Telefone Alagoas (DDD 82): *</label>
+          <input type="tel" id="telefone" name="telefone" placeholder="(82) 99999-9999" required maxlength="15">
+          <span class="error-message" id="erro-telefone"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="nascimento">Data de Nascimento: *</label>
+          <input type="date" id="nascimento" name="nascimento" required>
+          <span class="error-message" id="erro-nascimento"></span>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Opções do Curso</legend>
+
+        <div class="form-group">
+          <label for="curso">Curso Técnico Desejado: *</label>
+          <select id="curso" name="curso" required>
+            <option value="">-- Selecione um curso --</option>
+            <option value="informatica">Técnico em Informática</option>
+            <option value="redes">Técnico em Redes de Computadores</option>
+            <option value="ads">Análise e Desenvolvimento de Sistemas</option>
+          </select>
+          <span class="error-message" id="erro-curso"></span>
+        </div>
+
+        <div class="form-group">
+          <label>Turno Escolhido: *</label>
+          <div class="radio-group">
+            <label><input type="radio" name="turno" value="matutino" required> Matutino</label>
+            <label><input type="radio" name="turno" value="vespertino"> Vespertino</label>
+            <label><input type="radio" name="turno" value="noturno"> Noturno</label>
+          </div>
+          <span class="error-message" id="erro-turno"></span>
+        </div>
+
+        <div class="form-group">
+          <label>Áreas de Interesse (Selecione pelo menos 2):</label>
+          <div class="checkbox-grid">
+            <label><input type="checkbox" name="interesse" value="frontend"> Desenvolvimento Front-End</label>
+            <label><input type="checkbox" name="interesse" value="backend"> Desenvolvimento Back-End</label>
+            <label><input type="checkbox" name="interesse" value="dados"> Banco de Dados</label>
+            <label><input type="checkbox" name="interesse" value="infra"> Infraestrutura & Nuvem</label>
+          </div>
+          <span class="error-message" id="erro-interesse"></span>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Segurança e Anexos</legend>
+
+        <div class="form-group">
+          <label for="senha">Crie uma Senha Forte: *</label>
+          <div class="password-wrapper">
+            <input type="password" id="senha" name="senha" required>
+            <button type="button" id="btnVerSenha" class="btn-toggle-pass">Mostrar</button>
+          </div>
+          <div id="forcaSenhaContainer">
+            <div id="forcaSenhaBarra"></div>
+          </div>
+          <span class="error-message" id="erro-senha"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmarSenha">Confirme a sua Senha: *</label>
+          <input type="password" id="confirmarSenha" name="confirmarSenha" required>
+          <span class="error-message" id="erro-confirmarSenha"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="foto">Foto de Perfil (Opcional - JPG/PNG até 2MB):</label>
+          <input type="file" id="foto" name="foto" accept="image/jpeg, image/png">
+          <div id="previewContainer">
+            <img id="imagePreview" src="" alt="Preview da Imagem" style="display: none;">
+          </div>
+          <span class="error-message" id="erro-foto"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="mensagem">Por que você quer estudar conosco? (Min: 50 | Máx: 500 caracteres): *</label>
+          <textarea id="mensagem" name="mensagem" required minlength="50" maxlength="500" placeholder="Escreva suas motivações aqui..."></textarea>
+          <div class="char-counter"><span id="contadorCaracteres">0</span>/500 caracteres</div>
+          <span class="error-message" id="erro-mensagem"></span>
+        </div>
+
+        <div class="form-group checkbox-single">
+          <label>
+            <input type="checkbox" id="termos" name="termos" required> Li e aceito os termos e condições da matrícula *
+          </label>
+          <span class="error-message" id="erro-termos"></span>
+        </div>
+      </fieldset>
+
+      <div class="form-actions">
+        <button type="reset" id="btnLimpar">Limpar Dados</button>
+        <button type="submit" id="btnEnviar">Enviar Inscrição</button>
+      </div>
+
+    </form>
+  </main>
+
+  <div id="modalConfirmacao" class="modal-overlay">
+    <div class="modal-box">
+      <h3>Confirmar Envio?</h3>
+      <p>Revise seus dados antes do envio definitivo para o sistema acadêmico.</p>
+      <div class="modal-buttons">
+        <button id="modalCancelar" class="btn-modal-back">Voltar</button>
+        <button id="modalConfirmar" class="btn-modal-go">Confirmar e Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="alertaSucesso" class="sucesso-toast">
+    Cadastro Realizado com Sucesso! 🎉
+  </div>
+
+  <footer>
+    <p>Escola Técnica Oficial — Programação Web I - Laboratório 15</p>
+  </footer>
+
+  <script src="js/util.js"></script>
+  <script src="js/validacoes.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
